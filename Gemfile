@@ -23,6 +23,20 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'therubyracer'     
+gem 'less-rails'    
+gem 'twitter-bootstrap-rails'  
+
+gem 'devise' 
+
+gem 'carrierwave'
+gem 'rmagick'
+
+gem 'kaminari'
+
+gem 'acts-as-taggable-on', '~> 3.4'
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -45,15 +59,5 @@ group :development do
   gem 'spring'
 end
 
-gem 'therubyracer'     
-gem 'less-rails'    
-gem 'twitter-bootstrap-rails'  
 
-gem 'devise' 
 
-gem 'carrierwave'
-gem 'rmagick'
-
-gem 'kaminari'
-
-gem 'acts-as-taggable-on', '~> 3.4'
