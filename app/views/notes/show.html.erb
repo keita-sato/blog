@@ -1,0 +1,18 @@
+<h2 class="text-center h2">DETAILS</h2>
+
+<div class="text-center">ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー</div>
+<div class="center-block">
+   <p class="text-center size-title">TITLE　　　<%= @note.title %></p>
+   <p class="center-block size-content"><%= @note.content %></p>
+</div>
+
+<div class="text-center">
+<% if current_user.id == @note.user.try(:id) %>
+<%= link_to "編集", edit_note_path(@note),class:"btn edit-btn" %>
+<%= link_to "削除", @note, method: "delete", class: "btn destroy-btn","data-confirm" => "本当に削除しますか？" %>
+<%= link_to '戻る', notes_path, class: "btn back-btn" %>
+<% end %>
+</div>
+<div class="text-center">ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー</div>
+
+

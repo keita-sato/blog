@@ -1,0 +1,18 @@
+<h2 class="text-center h2">NEW POST</h2>
+
+<div class="text-center">ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー</div>
+<div class="field center-block">
+<%= form_for(@note) do |f| %>
+      <%#= f.label :userid %><br>
+　    
+      <div class="content">TITLE</div><%= f.text_field :title, class: "form-control center-block" %>
+　　　 <div class="content">CONTENT</div><%= f.text_field :content, class: "form-control center-block" %>
+      <%= f.label :interest_list, "興味・関心（カンマ区切り）", class:"content" %><br>
+      <%= text_field_tag 'note[interest_list]', @note.interest_list.join(','), class: "form-control center-block" %>
+      <%= f.label :image, class:"content" %>
+      <%= f.file_field :image, class:"content" %>
+      <div class="content">ユーザーID</div><div class="content"><%= f.collection_select :user_id, User.all, :id, :id %><br></div>
+　　　　<div class="text-center"><%= f.submit "投稿" %></div>
+ <% end %>
+ <div class="text-center">ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー</div>
+ </div>

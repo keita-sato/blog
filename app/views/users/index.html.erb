@@ -1,0 +1,19 @@
+<h2 class="text-center h2">USER</h2>
+	<ul class="users-list">
+	<div class="text-center">ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー</div>		<% @users.each do |u| %>
+	    <div>
+		   <li class="text-user">NAME 　　 　　　　　<%= link_to u.name, user_path(u) %></li>
+		   <li class="text-user">E-MAIL　　　　　　　<%= u.email %></li>
+		   <li class="text-user">
+		   <% if u.followed_by? current_user %>
+           <%= link_to "フォロー解除", follows_user_path(u), method: :delete %>
+           <% else %s
+           <%= link_to "フォロー", follows_user_path(u), method: :post %>
+           <% end %>
+        </li>
+        </div>
+        
+
+		<div class="text-center">ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー</div>
+		<% end %>
+		</ul>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Practice10</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample7">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand h-title" href="#">
+				Keita's BLOG
+			</a>
+		</div>
+		
+		<div class="collapse navbar-collapse" id="navbarEexample7">
+			<ul class="nav navbar-nav">
+				<li><%= link_to "Top", root_path, class:"h-list" %></li>
+				<li><%= link_to "About", about_path, class:"h-list" %></li>
+				<% if user_signed_in? %>
+			    <li>Logged in as <%= current_user.email %></li> 
+				<li><%= link_to "New", new_note_path, class:"h-list" %></li>
+				<li><%= link_to "POST ALL", notes_path %></li>
+			        <li><%= link_to 'USERS', users_path %></li>
+			        <li></li>
+			        <li><%= link_to 'MY PAGE', user_path(current_user) %></li>
+			        <li><%= link_to 'PROFILE EDIT', edit_user_registration_path %></li>
+			        <li><%= link_to "LOGOUT", destroy_user_session_path, method: :delete %></li>
+          <% else %>
+                  <li class="signin"><%= link_to "SIGN IN", new_user_registration_path %></li>
+                  <li class="login"><%= link_to "LOGIN", new_user_session_path %></li>
+          <% end %>
+			</ul>
+		</div>
+
+	</div>
+</nav>
+<div class="alert-box1"><p class="text-alert1"><%= notice %></p></div>
+<div class="alert-box2"><p class="text-alert2"><%= alert %></p></div>
+
+<%= yield %>
+
+</body>
+</html>

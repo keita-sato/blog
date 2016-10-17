@@ -1,0 +1,33 @@
+<ul class="user-details">
+    <li class="pull-left user-details-list">
+      <%= link_to user_path(@user) do %>
+        <div class="text">投稿数</div>
+        <div class="num"><%= @user.notes.count %></div>
+      <% end %>
+    </li>
+    <li class="pull-left user-details-list">
+      <%= link_to favorites_user_path(@user) do %>
+        <div class="text">いいね一覧</div>
+        <div class="num"><%= @user.favorites.count %></div>
+      <% end %>     
+    </li>
+</ul>
+<% if @user.favorites.empty? %>
+    <div class="list-group-item center-block">
+      まだお気に入りされた投稿はありません。
+    </div>
+<% end %>
+<% @user.favorites.map { |f| f.note }.each do |note| %>
+<div class="favorites-box text-center">
+    <h4 class="user">
+        <!-- <span class="user-name"> -->
+          <%#= link_to note.user.name, user_path(note.user) %>
+        <!-- </span> -->
+    <!-- <span class="user-id"><%= note.user.name %></span> -->
+    <span class="user-id"><%= note.title %></span>
+    </h4>
+    <div class="post-body">
+        <%= note.content %>
+    </div>  
+</div>
+<% end %>

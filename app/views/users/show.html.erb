@@ -1,0 +1,43 @@
+<ul class="user-details">
+    <li class="pull-left user-details-list">
+      <%= link_to user_path(@user) do %>
+        <div class="text">投稿数</div>
+        <div class="num"><%= @user.notes.count %></div>
+      <% end %>
+    </li>
+    <li class="pull-left user-details-list">
+      <%= link_to follows_user_path(@user) do %>
+        <div class="text">フォロー</div>
+        <div class="num"><%= @user.followings.count %></div>
+      <% end %>
+    </li>
+    <li class="pull-left user-details-list">
+      <%= link_to followers_user_path(@user) do %>
+        <div class="text">フォロワー</div>
+        <div class="num"><%= @user.followers.count %></div>
+      <% end %>
+    </li>
+    <li class="pull-left user-details-list">
+      <%= link_to favorites_user_path(@user) do %>
+        <div class="text">いいね一覧</div>
+        <div class="num"><%= @user.favorites.count %></div>
+      <% end %>     
+    </li>
+</ul>
+<div class="user-tweets-list">
+<% @user.notes.each do |note| %>
+  <div class="user-tweet-box center-block">
+    <h4 class="user text-center">
+        <!-- <span class="user-name"> -->
+          <%#= link_to note.user.name, user_path(note.user) %>
+        <!-- </span> -->
+
+    <!-- <span class="user-id"><%= note.user.name %></span> -->
+    <span class="user-id"><%= note.title %></span>
+    </h4>
+    <div class="post-body text-center">
+        <%= note.content %>
+    </div>
+  </div>  
+<% end %>
+</div>

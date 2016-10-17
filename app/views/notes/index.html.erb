@@ -1,0 +1,44 @@
+<h2 class="text-center h2">POSTS LIST</h2>
+
+<div class="text-center">ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー</div>
+<div class="center-block">  
+<tbody>
+  <% @notes.each do |note| %>
+    <tr>
+    <td><p class="text-center size-title">TITLE　　　<%= link_to note.title, note_path(note) %></p></td>
+    <!-- <td><p>CONTENT</p><p><%= note.content %></p></td> -->
+    <% if note.image? %>
+    　<td><%=  image_tag note.image.url,class:"center-block" %></td>
+    　<% else %>
+    　<td><%= image_tag 'jb3.jpg', class:"center-block" %></td>
+    　<% end %>
+    <td><div class="label-tag tag-box"><%= render 'notes/tag_list', tag_list: note.interest_list %></div></td>
+    <td>
+        <div class="text-center">
+            <% if note.favorited_by? current_user %>
+              <%= link_to "RELEASE GOOD", note_favorites_path(note), method: :delete, class:"center-block" %>
+            <% else %>
+              <%= link_to "GOOD", note_favorites_path(note), method: :post, remove: true, class:"center-block" %>
+            <% end %>
+        </div> 
+    </td>
+    <td>
+        <div class="text-center">
+            <% if note.user.followed_by? current_user %>
+              <%= link_to "RELEASE FOLLOW", user_relationships_path(note.user), method: :delete %>
+            <% else %>
+              <%= link_to "FOLLOW", user_relationships_path(note.user), method: :post %>
+            <% end %>
+        </div>
+    </td>
+    </tr>
+    <div class="text-center">ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー</div>
+  <% end %>
+</tbody>
+</div>
+<br>
+<div class="text-center"><%= paginate @notes %></div>
+
+
+
+

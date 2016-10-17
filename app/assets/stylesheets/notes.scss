@@ -1,0 +1,112 @@
+// Place all the styles related to the notes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+*{
+    margin:0;
+    padding:0;
+	list-style-type:none;
+}
+.alert-box1{
+	font-size:25px;
+	background-color:blue;
+}
+.text-alert1{
+	margin:0;
+	padding:0;
+	width:800px;
+	text-align:center;
+	margin:0 auto;
+}
+.alert-box2{
+	font-size:25px;
+	background-color:red;
+}
+.text-alert2{
+	margin:0;
+	padding:0;
+	width:800px;
+	text-align:center;
+	margin:0 auto;
+}
+.h2{
+	font-size:50px;
+}
+.signin,.login{
+	float:left;
+	width:200px;
+	heiht:40px;
+    line-height:40px;
+    text-align:center;
+}
+.form-control{
+	width:55%;
+}
+.content{
+	 padding-left:330px;
+}
+.size-title{
+	font-size:30px;
+}
+.size-content{
+    width:700px;
+	font-size:20px;
+}
+.label{
+	text-align:center;
+}
+.h-title{
+	font-size:30px;
+}
+.h-list{
+	font-size:20px;
+}
+.navbar{
+	margin-bottom:-20px;
+}
+.back-ground{
+	width:100%;
+	height:850px;
+	background-image:image-url("london.jpg");
+} 
+.top-title .h2{
+    height:200px;
+	font-size:50px;
+	margin:0;
+	padding:150px 0 0 0;
+	text-indent:50%;
+}
+.tag-box{
+	width: 300px;
+	margin: 0 auto;
+}
+.form-possition{
+	width:600px;
+	height:300px;
+	padding-top:60px;
+	margin-left:700px;
+}
+.navbar{
+	margin-bottom:0;
+}
+.user-details-list{
+	width: 200px;
+	height: 50px;
+	font-size: 20px;
+	text-align: center;
+}
+.user-details{
+	margin-top: 30px;
+}
+.user-tweets-list,.follows-box,.followers-box,.favorites-box{
+	margin-top: 100px;
+}
+.user-tweet-box{
+	width: 700px;
+	border:2px black dotted;
+	border-radius: 15px;
+	margin-bottom: 30px;
+}
+.login-edit-box{
+	width: 700px;
+	margin:0 auto;
+}

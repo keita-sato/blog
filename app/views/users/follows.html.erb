@@ -1,0 +1,40 @@
+<ul class="user-details">
+    <li class="pull-left user-details-list">
+      <%= link_to user_path(@user) do %>
+        <div class="text">投稿数</div>
+        <div class="num"><%= @user.notes.count %></div>
+      <% end %>
+    </li>
+    <li class="pull-left user-details-list">
+      <%= link_to follows_user_path(@user) do %>
+        <div class="text">フォロー</div>
+        <div class="num"><%= @user.followings.count %></div>
+      <% end %>
+    </li>
+    <li class="pull-left user-details-list">
+      <%= link_to followers_user_path(@user) do %>
+        <div class="text">フォロワー</div>
+        <div class="num"><%= @user.followers.count %></div>
+      <% end %>
+    </li>
+    <li class="pull-left user-details-list">
+      <%= link_to favorites_user_path(@user) do %>
+        <div class="text">いいね一覧</div>
+        <div class="num"><%= @user.favorites.count %></div>
+      <% end %>     
+    </li>
+</ul>
+<% @user.followings.each do |u| %>
+      <div class="follows-box">
+       <li class="text-user">NAME 　　 　　　　　<%= link_to u.name, user_path(u) %></li>
+       <li class="text-user">E-MAIL　　　　　　　<%= u.email %></li>
+       <li class="text-user">
+       <%= link_to 'edit', edit_user_path(@user) %>
+       <% if u.followed_by? current_user %>
+           <%= link_to "フォロー解除", follows_user_path(u), method: :delete %>
+           <% else %>
+           <%= link_to "フォロー", follows_user_path(u), method: :post %>
+           <% end %>
+        </li>
+        </div>
+<% end %>
