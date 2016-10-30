@@ -3,7 +3,7 @@
 	<div class="text-center">ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー</div>		<% @users.each do |u| %>
 	    <div>
 		   <li class="text-user">NAME 　　 　　　　　<%= link_to u.name, user_path(u) %></li>
-		   <li class="text-user">E-MAIL　　　　　　　<%= u.email %></li>
+		   <!-- <li class="text-user">E-MAIL　　　　　　　<%#= u.email %></li> -->
 		   <li class="text-user">
 		   <% if u.followed_by? current_user %>
            <%= link_to "フォロー解除", follows_user_path(u), method: :delete %>
